@@ -76,7 +76,7 @@ brew install shadowsocks-libev
 2. Command-line Client：
 
 ```bash
-# 需要在 Windows 上先安装 Cygwin，Python3 以及 pip3
+# 需要在 Windows 上先安装 Python3 以及 pip3 
 pip3 install shadowsocks
 ```
 
