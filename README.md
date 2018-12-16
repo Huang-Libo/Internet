@@ -12,9 +12,13 @@
 
 #### shadowsocks
 
+> 最常用，最靠谱的方式。
+
 https://github.com/Huang-Libo/Internet/blob/master/shadowsocks.md
 
 #### VPN
+
+> 有的时候 ss 搞不定的事情，就得用 VPN。
 
 https://github.com/Huang-Libo/Internet/blob/master/vpn.md
 
