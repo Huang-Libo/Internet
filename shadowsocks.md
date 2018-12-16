@@ -24,13 +24,11 @@ https://shadowsocks.org/en/spec/Implementations.html
 
 [shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)：C 语言实现的版本，轻量且功能全面，笔者**推荐**使用这个版本。  
 
-[shadowsocks-go](https://github.com/shadowsocks/shadowsocks-go) & [go-shadowsocks2](https://github.com/shadowsocks/go-shadowsocks2)：Go 语言实现的两个版本，后者号称下一代的 Go 实现。  
+[shadowsocks-go](https://github.com/shadowsocks/shadowsocks-go) & [go-shadowsocks2](https://github.com/shadowsocks/go-shadowsocks2)：Go 语言实现的两个版本，后者号称下一代的 Go 实现。    
 
-[shadowsocks-rust](https://github.com/shadowsocks/shadowsocks-rust)：rust 的实现。  
+[libQtShadowsocks](https://github.com/shadowsocks/libQtShadowsocks)：又称作 `shadowsocks-libqss`，可以在 Windows 上架设服务端。written in C++14 with Qt framework。   
 
-[libQtShadowsocks](https://github.com/shadowsocks/libQtShadowsocks)：又称作 `shadowsocks-libqss`，可以在 Windows 上架设服务端。written in C++14 with Qt framework。  
-
-[openwrt-shadowsocks](https://github.com/shadowsocks/openwrt-shadowsocks)： shadowsocks-libev 在 OpenWrt 上的移植。  
+[shadowsocks-rust](https://github.com/shadowsocks/shadowsocks-rust)：rust 的实现。
 
 [ShadowsocksR](https://github.com/shadowsocksr-backup/shadowsocksr)：简称 ssr，[breakwa11](https://github.com/breakwa11) fork 出去的版本，当时因为不遵守 GPL 协议而被质疑。  
 
@@ -51,7 +49,10 @@ https://shadowsocks.org/en/spec/Implementations.html
 > 官方配置文件说明：https://shadowsocks.org/en/config/quick-guide.html
 
 开机自启动：  
+
+```bash
 sudo systemctl stop iptables.service
+```
 
 ## 客户端
 
@@ -63,10 +64,10 @@ https://shadowsocks.org/en/spec/Implementations.html
 #### 桌面端
 
 ###### macOS
-1. GUI Client：[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases)
+1. GUI Client：[ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases)   
 2. Command-line Client：
 
-```
+```bash
 brew install shadowsocks-libev
 ```
 
@@ -74,7 +75,7 @@ brew install shadowsocks-libev
 1. GUI Client：[shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases)
 2. Command-line Client：
 
-```
+```bash
 # 需要在 Windows 上先安装 Cygwin，Python3 以及 pip3
 pip3 install shadowsocks
 ```
@@ -83,20 +84,20 @@ pip3 install shadowsocks
 1. GUI Client：[shadowsocks-qt5](https://github.com/shadowsocks/shadowsocks-qt5) （ Cross-platform client for Windows/MacOS/Linux.）
 2. Command-line Client：
 
-```
+```bash
 sudo apt install shadowsocks-libev
 ```
 
 补充说明：  
 桌面端都可以使用 `pip3` 来安装：  
 
-```
+```bash
 pip3 install shadowsocks
 ```
 
 Linux 和 macOS 也可以使用 perl 的 cpan 来安装：  
 
-```
+```bash
 cpan Net::Shadowsocks
 ```
 
@@ -111,6 +112,12 @@ SuperRocket（中区，￥6），SsrConnectPro（美区，免费），shadowrock
 ###### Android
 
 [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)
+
+#### 其他嵌入式设备
+
+###### openwrt 系统的路由器
+
+[openwrt-shadowsocks](https://github.com/shadowsocks/openwrt-shadowsocks)： shadowsocks-libev 在 OpenWrt 上的移植。 
 
 
 ## 服务端管理后台
