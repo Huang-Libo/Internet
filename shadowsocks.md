@@ -51,7 +51,7 @@ https://shadowsocks.org/en/spec/Implementations.html
 开机自启动：  
 
 ```bash
-sudo systemctl stop iptables.service
+sudo systemctl start shadowsocks-libev.service
 ```
 
 ## 客户端
