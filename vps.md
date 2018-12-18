@@ -4,7 +4,7 @@
 
 ## 说明
 
-这次从 Ubuntu 换会 CentOS 系统了，下述都是讲的 CentOS 上的操作。（和 Ubuntu 略有差别而已）
+这次从 Ubuntu 换回 CentOS 系统了，下述都是讲的 CentOS 上的操作。（和 Ubuntu 略有差别而已）
 
 ## 配置本机终端
 
@@ -16,7 +16,7 @@
 
 #### Windows
 
-putty？[Cywin](https://www.cygwin.com/)？
+putty？[Cywin](https://www.cygwin.com/)？  
 听说微软自己搞了一个 Linux 环境子系统？
 
 ## 登录 server
@@ -63,14 +63,14 @@ yum -y install zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-其强大之处是可配置各种好用的插件，默认开启的有 `git` 插件。其他插件的配置可参看其 [Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) 或 [插件代码仓库(每个插件都包含 Readme)](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)（后者更实时） 。  
+其强大之处是可配置各种好用的插件，默认开启的有 `git` 插件。其他插件的配置可参看其 [Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) 或 [插件代码仓库](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)（每个插件都包含详细的 Readme） 。  
 
 另外，还可以自行配置 theme，Wiki 里有[截图示例](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)。
 
 oh-my-zsh 默认情况下每隔几周会检测一次升级。相关的配置在 `~/.zshrc` 中：
 
 ```bash
-# 自动升级时是否询问
+# 检测到新版本时，安装前是否询问用户
 DISABLE_UPDATE_PROMPT=true
 # 是否禁止自动升级
 DISABLE_AUTO_UPDATE=true
@@ -126,13 +126,11 @@ python3 get-pip.py
 
 > vps 上首选的 git 服务托管。
 
-## 有趣的小工具
-
-#### [magic-wormhole](https://github.com/warner/magic-wormhole)
+## [magic-wormhole](https://github.com/warner/magic-wormhole)
 
 > get things from one computer to another, safely.
 
-###### 基本用法
+#### 基本用法
 
 （也可参看详细的[文档](https://magic-wormhole.readthedocs.io/en/latest/)）： 
 
@@ -149,7 +147,7 @@ wormhole send README.md
 wormhole receive
 ```
 
-###### 安装
+#### 安装
 
 macOS
 
