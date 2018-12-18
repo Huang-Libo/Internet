@@ -12,7 +12,7 @@
 
 #### shadowsocks
 
-> 最常用，最靠谱的方式。
+> 最常用，最稳定的方式。
 
 https://github.com/Huang-Libo/Internet/blob/master/shadowsocks.md
 
