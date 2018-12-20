@@ -174,6 +174,53 @@ sudo pip3 install magic-wormhole
 pip3 install --user magic-wormhole
 ```
 
+## 设置时区
+
+查看当前日期、时区：
+
+```bash
+date
+```
+
+查看时区详细信息：  
+
+```bash
+timedatectl status
+```
+
+列出所有时区：  
+
+
+```bash
+# 结果会比较多
+timedatectl list-timezones
+# 筛选亚洲的结果
+timedatectl list-timezones | grep Asia
+```
+
+将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间：  
+
+
+```bash
+timedatectl set-local-rtc 1
+```
+
+将系统时区设置为上海：  
+
+
+```bash
+timedatectl set-timezone Asia/Shanghai
+```
+
+**另一种方式**：不考虑各个发行版的差异化, 从更底层出发的话, 修改时间时区比想象中要简单，
+
+
+```bash
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```
+
+参考资料：https://www.cnblogs.com/zhangeamon/p/5500744.html
+
 ## FAQ
 
 玩一会就提示 `You have new mail.`，输入 `mail` 查看，提示 `command not found: mail`，需要安装 `mailx`：
