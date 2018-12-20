@@ -16,7 +16,7 @@
 
 https://github.com/Huang-Libo/Internet/blob/master/shadowsocks.md
 
-## 服务器的日常维护
+## 服务器的基本设置和日常维护
 
 https://github.com/Huang-Libo/Internet/blob/master/server.md
 
