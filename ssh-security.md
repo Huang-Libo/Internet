@@ -67,7 +67,13 @@ SSH 的默认端口号是 22，Linux 的超级管理员的用户名是 root，�
 
 在执行下述操作前，先确保有其他可以登录服务器的用户。  
 
-在 `/etc/ssh/sshd_config` 配置文件中找到`PermitRootLogin` 选项，将后面的 yes 改为 no ，取消注释，这样root就不能远程登录了。  
+在 `/etc/ssh/sshd_config` 配置文件中找到 `PermitRootLogin` 选项，将后面的 yes 改为 no ，取消注释，这样root就不能远程登录了。  
+
+然后重启 SSH 服务：  
+
+```bash
+systemctl restart sshd.service
+```
 
 缺点：每次都得先登录另一个用户，太麻烦了。（虽然有人说不要直接使用 root 用户，但是我觉得个人的小服务器还是以操作效率为第一要义。）
 
@@ -160,4 +166,31 @@ systemctl restart fail2ban.service
 之前被 Ban 过的 IP 全部被禁 500 年了（总数多达近百个 IP，而我们的服务器才刚用十天的样子……）。  
 
 然后截图往下看，又来了几个尝试登录的 IP，唔，外网真是一个野蛮的丛林。
+
+## 结局
+
+`fail2ban` 其实已经很好用了，基本上杜绝了服务器被暴力破解的可能，但是我是一个强迫症用户，每次登录看到 x 次登录失败的提示，心里就很乱，就想去看 `fail2ban` 的日志。  
+
+我先是尝试禁止 root 通过 SSH 登录，但是发现服务器虽然不会让 root 登录入系统，但是还是会给用户输入密码的机会，失败记录还是会记入 fail2ban 的日志。  
+
+最后，我改了 SSH 的端口，打开配置文件 `/etc/ssh/sshd_config`，添加下面这行（可以添加多个端口）：  
+
+```bash
+Port 2022
+```
+ 
+然后重启 SSH 服务：  
+
+```bash
+systemctl restart sshd.service
+```
+
+设置好之后，依然以 root 用户登录，但是需要显示指定端口号：  
+
+```bash
+ssh -p 2022 root@ip
+```
+
+世界终于安静了！！！
+
 

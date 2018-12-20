@@ -2,7 +2,7 @@
 
 > [VPS](https://en.wikipedia.org/wiki/Virtual_private_server)（Virtual Private Server 虚拟专用服务器），是将一台服务器分割成多个虚拟专享服务器的服务。
 
-## 说明
+## 操作系统：CentOS7
 
 这次从 Ubuntu 换回 CentOS 系统了，下述都是讲的 CentOS 上的操作。（和 Ubuntu 略有差别而已）
 
@@ -40,7 +40,14 @@ passwd
 pbcopy < .ssh/id_rsa.pub
 ```
 
-然后在 server 上的 ` ~/.ssh/authorized_keys` 文件中添加公钥。（若目录和文件不存在则自行创建。）
+然后在 server 上的 ` ~/.ssh/authorized_keys` 文件中添加公钥。（若目录和文件不存在则自行创建。）  
+
+如果未生效，请配置 `.ssh` 目录和 `authorized_keys` 文件的权限：  
+
+```bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+```
 
 #### 另一种登录方式之2： 
 
@@ -220,6 +227,30 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
 参考资料：https://www.cnblogs.com/zhangeamon/p/5500744.html
+
+## 添加有 sudo 权限的用户
+
+可以先查看当前的`用户`信息和`用户组`信息：  
+
+```bash
+# 查看用户信息
+vim /etc/passwd
+#查看用户组信息
+vim /etc/group
+```
+
+添加用户：  
+
+```bash
+# 添加用户
+adduser username
+# 给用户设置密码
+passwd username
+# 将用户添加到 wheel 用户组（对应 Ubuntu 上的 sudo 用户组）
+usermod -aG wheel username
+```
+
+这样该用户就有 sudo 权限了。
 
 ## FAQ
 
