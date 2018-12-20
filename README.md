@@ -16,6 +16,14 @@
 
 https://github.com/Huang-Libo/Internet/blob/master/shadowsocks.md
 
+## 服务器的日常维护
+
+https://github.com/Huang-Libo/Internet/blob/master/server.md
+
+## 服务器的安全问题
+
+https://github.com/Huang-Libo/Internet/blob/master/server-security.md
+
 #### VPN
 
 > 有的时候 ss 搞不定的事情，就得用 VPN。
