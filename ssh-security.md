@@ -191,6 +191,8 @@ systemctl restart sshd.service
 ssh -p 2022 root@ip
 ```
 
+现在，SSH 的不再使用默认的 22 端口，又有 `fail2ban` 保驾护航，安全级别已经非常高了，只要不泄漏密码基本上不会出事。  
+
 世界终于安静了！！！
 
 
