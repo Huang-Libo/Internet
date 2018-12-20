@@ -178,6 +178,8 @@ sudo systemctl stop iptables.service
 
 如果熟悉防火墙配置也可以自行配置。  
 
+**另外，有些云服务商的后台还有一套端口开关，需要用户去网站其后台打开需要使用的端口，比如青云。**
+
 ## 参考链接
 
 [一键安装脚本](https://github.com/teddysun/shadowsocks_install) ：由 [teddysun](https://github.com/teddysun) 发布于 GitHub。
