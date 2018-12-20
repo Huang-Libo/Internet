@@ -101,7 +101,7 @@ systemctl start fail2ban
 
 配置文件 `/etc/fail2ban/jail.conf` 中的常用配置（下面数字的单位是秒）：  
 
-```
+```bash
 # "bantime" is the number of seconds that a host is banned.
 bantime  = 3600
 
@@ -127,6 +127,38 @@ systemctl restart fail2ban
 
 这些恶意脚本应该也有试错判断（成本控制），如果长时间被拒绝登录，恶意脚本应该就会将此服务器标识为“难以搞定的”，然后放弃恶意登录我们的服务器。 
 
+#### 后续
+
+过了俩小时，再次登录，看到了少量的登录失败尝试：  
+
+![](media/15453087982266.jpg)
 
 
+查看 `/var/log/fail2ban.log` 日志，失败五次被 Ban 了：     
+
+![](media/15453088691957.jpg)
+
+然后一个小时后 `fail2ban` 主动解禁了此 IP：  
+
+![](media/15453089214608.jpg)
+
+然后我和 bingbig 合计了一下，这帮坏淫，不禁五百年何以解忧！修改配置：
+
+```
+bantime  = 15768000000
+```
+
+然后重启服务：  
+
+```bash
+systemctl restart fail2ban.service
+```
+
+再看 `/var/log/fail2ban.log` 日志：  
+
+![](media/15453097040826.jpg)
+
+之前被 Ban 过的 IP 全部被禁 500 年了（总数多达近百个 IP，而我们的服务器才刚用十天的样子……）。  
+
+然后截图往下看，又来了几个尝试登录的 IP，唔，外网真是一个野蛮的丛林。
 
