@@ -2,6 +2,8 @@
 
 ## 推荐的加密方法
 
+> 使用新的加密方法时，请确认客户端是否也支持该加密方法（特别是 iOS 客户端要多留意）。  
+
 https://github.com/shadowsocks/shadowsocks-windows/issues/1243#issuecomment-316714974
 
 ![](media/15448934645509.jpg)
