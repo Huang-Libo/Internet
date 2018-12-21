@@ -157,7 +157,7 @@ https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/uninstall-zh.md
 
 ## FAQ
 
-#### VPN 可连上，但是没有网络
+#### VPN 可连上，但是没有网络：iptables 引发的问题
 
 VPN 在服务器刚装好时就安装了，之后才安装的 ss。VPN 刚装好时，是可以正常使用的。  
 
