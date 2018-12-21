@@ -3,6 +3,8 @@
 
 > socks5 代理。
 
+如果对防火墙的配置不熟悉，安装前，先停止和禁用 iptables ：`systemctl stop iptables.service & systemctl disable iptables.service`    
+
 ## shadowsocks HOME
 
 代码仓库：https://github.com/shadowsocks  
