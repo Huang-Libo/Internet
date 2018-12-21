@@ -2,11 +2,11 @@
 
 ## 简介
 
+项目的仓库：https://github.com/hwdsl2/setup-ipsec-vpn  
+
 本方案使用 Linux 脚本一键快速搭建自己的 IPsec VPN 服务器。支持 `IPsec/L2TP` 和 `Cisco IPsec` 协议，可用于 Ubuntu/Debian/CentOS 系统。你只需提供自己的 VPN 登录凭证，然后运行脚本自动完成安装。  
 
 其中，以 Libreswan 作为 IPsec 服务器，以及 xl2tpd 作为 L2TP 提供者。  
-
-项目的仓库：https://github.com/hwdsl2/setup-ipsec-vpn  
 
 ## 服务端安装
 
