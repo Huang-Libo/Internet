@@ -4,7 +4,11 @@
 
 ## vps
 
-翻墙首先得租一个 vps，推荐 [Vultr](https://www.vultr.com/?ref=6960892)，按小时计费，可随时部署和删除。最低价格合计为 \$3.5/月（\$2.5 的只有 ipv6 网络），非常划算。可以使用信用卡、微信、支付宝付款。比较快的 location 有日本、新加坡和美国西海岸，可以使用家里的宽带对这些地区[测速](https://www.vultr.com/locations/)。    
+翻墙首先得租一个 vps，推荐 [Vultr](https://www.vultr.com/?ref=6960892)，按小时计费，可随时部署和删除。最低价格合计为 \$3.5/月（\$2.5 的只有 ipv6 网络），非常划算。可以使用信用卡、微信、支付宝付款。比较快的 location 有日本、新加坡和美国西海岸，可以使用家里的宽带对这些地区[测速](https://www.vultr.com/locations/)。  
+
+## 服务器的基本设置和日常维护
+
+https://github.com/Huang-Libo/Internet/blob/master/server.md  
 
 ## 翻墙工具
 
@@ -21,10 +25,6 @@ https://github.com/Huang-Libo/Internet/blob/master/shadowsocks.md
 > 有的时候 ss 搞不定的事情，就得用 VPN。
 
 https://github.com/Huang-Libo/Internet/blob/master/vpn.md
-
-## 服务器的基本设置和日常维护
-
-https://github.com/Huang-Libo/Internet/blob/master/server.md
 
 ## 服务器的安全问题
 
