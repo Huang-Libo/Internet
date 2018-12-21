@@ -125,7 +125,7 @@ yum install python36
 
 
 ```bash
-curl https://bootstrap.pypa.io/get-pip.py -「」 get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
 ```
 
