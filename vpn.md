@@ -169,3 +169,9 @@ VPN 在服务器刚装好时就安装了，之后才安装的 ss。VPN 刚装好
 
 结果：卸载 VPN、关闭 iptables 后，重新安装 VPN，再次打开  iptables，VPN 就能正常使用了。ss也能正常使用，什么原理？？有时间得研究一下 iptables。
 
+#### 我应该使用哪个模式
+
+<img src="./media/15458810613431.jpg" width="30%" height="30%">
+
+图片来自华为系统。我们推荐使用的是 Cisco IPsec，这里没有显示，实际上 Cisco IPsec 就是 **IPsec Xauth**，并且我们使用的是 **PSK** (pre shared key，预共享密钥) 加密。另一个 RSA 是非对称加密。  
+
