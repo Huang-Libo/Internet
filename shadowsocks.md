@@ -50,10 +50,22 @@ https://shadowsocks.org/en/spec/Implementations.html
 
 > 官方配置文件说明：https://shadowsocks.org/en/config/quick-guide.html
 
-开机自启动：  
+启动服务：  
 
 ```bash
 sudo systemctl start shadowsocks-libev.service
+```
+
+设置为随系统启动：  
+
+```bash
+sudo systemctl enable shadowsocks-libev.service
+```
+
+查看服务状态：  
+
+```bash
+sudo systemctl status shadowsocks-libev.service
 ```
 
 ## 客户端
