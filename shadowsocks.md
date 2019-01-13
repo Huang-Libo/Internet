@@ -42,6 +42,13 @@ https://shadowsocks.org/en/spec/Implementations.html
 
 传统的包管理工具是 `yum`，但是现在有被新晋包管理工具 `dnf` 取代的趋势。  
 
+安装 `dnf`：  
+
+```bash
+yum install dnf
+yum install dnf-plugins-core
+``` 
+
 ###### Ubuntu
 
 使用包管理工具 `apt`。
