@@ -4,7 +4,7 @@
 
 ## 使用的操作系统
 
-**CentOS 7 without SELinux**  
+**CentOS 7 (without SELinux)**  
 **Ubuntu 20.04**
 
 ## 配置本机终端
@@ -21,14 +21,14 @@
 
 ## 简化 vps 登录命令
 
-### 方法一，在 `~/.zshrc` 中添加变量：
+### 方法一，在 `~/.zshrc` （更换为你使用的 shell 的配置文件）中添加变量：
 
 ```
 export jp="root@IP"
 ```
 
-- 将 *jp* 改为你自己 vps 的 location，以便识别。  
-- 将 *IP* 改为你自己 vps 的 IP。  
+- 将 *jp* 改为你的 vps 的 location，以便识别。  
+- 将 *IP* 改为你的 vps 的 IP。  
 
 设置好之后，刷新（或打开一个新终端）：
 
@@ -54,7 +54,7 @@ ssh $jp
 
 原理就是将用户名和密码写入到脚本中。按快捷键即可登录，不需要再输入登录命令。
 
-## server 登录认证的方式
+## server 的认证方式
 
 ### 密码
 
@@ -64,9 +64,7 @@ ssh $jp
 passwd
 ```
 
-### 免密，配置 authorized_keys
-
-可以在 server 的 authorized_keys 中添加 ssh key，实现免密登录。
+### 免密，在 server 的 authorized_keys 文件中配置 ssh key
 
 先获取当前机器的公钥：
 
@@ -112,7 +110,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 其强大之处是可配置各种好用的插件，默认开启的有 `git` 插件。其他插件的配置可参看其 [Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) 或 [插件代码仓库](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)（每个插件都包含详细的 Readme） 。  
 
-另外，还可以在 `~/.zshrc` 中自行配置 theme，Wiki 里有[截图示例](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)，vps 推荐使用 `ys` 主题。修改 `ZSH_THEME` 的值：  
+另外，还可以在 `~/.zshrc` 中自行配置 theme，Wiki 里有[截图示例](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)。vps 推荐使用 `ys` 主题。修改 `ZSH_THEME` 的值：  
 
 ```bash
 ZSH_THEME="ys"
@@ -145,12 +143,6 @@ upgrade_oh_my_zsh
 uninstall_oh_my_zsh
 ```
 
-## 翻墙工具
-
-> vps 最重要的功能就是翻墙啦，所以有必要单独建个仓库来讨论。
-
-shadowsocks，vpn，请查看 https://github.com/Huang-Libo/Internet 。
-
 ## 安装 Python3 和 pip3
 
 ```
@@ -164,7 +156,7 @@ yum install python3
 yum search python3
 ```
 
-发现有很多结果，找到一个包名叫 `python36.x86_64` 的包。
+发现有很多结果，找到一个包名叫 `python36.x86_64` 的包，安装：
 
 ```
 yum -y install python36
@@ -216,7 +208,7 @@ sudo apt -y install magic-wormhole
 sudo yum -y install magic-wormhole
 ```
 
-（使用 `pip3` 安装如果报错，可能需要通过 yum 安装 `python3-devel`：）
+（使用 `pip3` 安装如果报错，可能需要通过 yum 安装 `python3-devel`）：
 
 ```bash 
 yum search python3 | grep devel
@@ -245,6 +237,10 @@ RuntimeError: Click will abort further execution because Python 3 was configured
 export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 ```
+
+## Gogs
+
+> vps 上首选的 git 服务托管。
 
 ## 设置时区
 
@@ -316,10 +312,6 @@ usermod -aG wheel username
 ```
 
 这样该用户就有 sudo 权限了。
-
-## Gogs
-
-> vps 上首选的 git 服务托管。
 
 ## FAQ
 
