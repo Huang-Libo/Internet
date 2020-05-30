@@ -2,26 +2,61 @@
 
 > [VPS](https://en.wikipedia.org/wiki/Virtual_private_server)（Virtual Private Server 虚拟专用服务器），是将一台服务器分割成多个虚拟专享服务器的服务。
 
-## 操作系统：CentOS7
+## 使用的操作系统
 
-这次从 Ubuntu 换回 CentOS 系统了，下述都是讲的 CentOS 上的操作。（和 Ubuntu 略有差别而已）
+**CentOS 7 without SELinux**  
+**Ubuntu 20.04**
 
 ## 配置本机终端
 
-#### macOS
+### macOS
 
 推荐 [iTerm2](https://www.iterm2.com/) (Mac only)。   
 
-特性：https://www.iterm2.com/features.html  
+### Windows
 
-#### Windows
+[Cywin](https://www.cygwin.com/)？putty？  
 
-putty？[Cywin](https://www.cygwin.com/)？  
 听说微软自己搞了一个 Linux 环境子系统？
 
-## 登录 server
+## 简化 vps 登录命令
 
-#### 常规操作
+### 方法一，在 `~/.zshrc` 中添加变量：
+
+```
+export jp="root@IP"
+```
+
+- 将 *jp* 改为你自己 vps 的 location，以便识别。  
+- 将 *IP* 改为你自己 vps 的 IP。  
+
+设置好之后，刷新（或打开一个新终端）：
+
+```
+source ~/.zshrc
+```
+
+查看我们设置的变量是否生效：
+
+```
+echo $jp
+```
+
+如果设置成功了，就会打印相应内容；如果设置未生效，则输出为空。  
+
+下次再登录时，就可以使用该变量：
+
+```
+ssh $jp
+```
+
+### 方法二，在 `iTerm2` 上配置 Profiles：
+
+原理就是将用户名和密码写入到脚本中。按快捷键即可登录，不需要再输入登录命令。
+
+## server 登录认证的方式
+
+### 密码
 
 第一次登陆时，用 root 的初始密码登录，登录后更改密码：
 
@@ -29,9 +64,9 @@ putty？[Cywin](https://www.cygwin.com/)？
 passwd
 ```
 
-#### 另一种登录方式之1：  
+### 免密，配置 authorized_keys
 
-可以在 server 上设置 ssh key，实现免密登录。
+可以在 server 的 authorized_keys 中添加 ssh key，实现免密登录。
 
 先获取当前机器的公钥：
 
@@ -40,7 +75,14 @@ passwd
 pbcopy < .ssh/id_rsa.pub
 ```
 
-然后在 server 上的 ` ~/.ssh/authorized_keys` 文件中添加公钥。（若目录和文件不存在则自行创建。）  
+然后在 server 上的 `~/.ssh/authorized_keys` 文件中添加公钥。若目录和文件不存在则自行创建：  
+
+```
+mkdir .ssh
+vim ~/.ssh/authorized_keys
+```
+
+将 `id_rsa.pub` 写入到 `~/.ssh/authorized_keys` 文件中。  
 
 如果未生效，请配置 `.ssh` 目录和 `authorized_keys` 文件的权限：  
 
@@ -48,10 +90,6 @@ pbcopy < .ssh/id_rsa.pub
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 ```
-
-#### 另一种登录方式之2： 
-
-在 `iTerm2` 上配置 Profiles 后可以使用快捷键登录。
 
 ## 在 server 上配置 [oh-my-zsh](https://ohmyz.sh/)
 
@@ -62,6 +100,8 @@ chmod 600 ~/.ssh/authorized_keys
 ```bash
 # CentOS
 yum -y install zsh
+# Ubuntu 20.04
+apt -y install zsh
 ```
 
 然后安装 oh-my-zsh：
@@ -72,9 +112,19 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 其强大之处是可配置各种好用的插件，默认开启的有 `git` 插件。其他插件的配置可参看其 [Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) 或 [插件代码仓库](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)（每个插件都包含详细的 Readme） 。  
 
-另外，还可以自行配置 theme，Wiki 里有[截图示例](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)。
+另外，还可以在 `~/.zshrc` 中自行配置 theme，Wiki 里有[截图示例](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)，vps 推荐使用 `ys` 主题。修改 `ZSH_THEME` 的值：  
 
-oh-my-zsh 默认情况下每隔几周会检测一次升级。相关的配置在 `~/.zshrc` 中：
+```bash
+ZSH_THEME="ys"
+```
+
+然后执行 `source .zshrc` 刷新：  
+
+![ys theme](media/15908363956719.jpg)
+
+此主题显示了用户名，主机名，和当前目录，非常实用。  
+
+oh-my-zsh 默认情况下每隔几周会检测一次升级。也可在 `~/.zshrc` 中配置：
 
 ```bash
 # 检测到新版本时，安装前是否询问用户
@@ -117,29 +167,16 @@ yum search python3
 发现有很多结果，找到一个包名叫 `python36.x86_64` 的包。
 
 ```
-yum install python36
+yum -y install python36
 ```
 
-`pip3` 可以用上述方式安装，也使用下面[这种](https://pip.readthedocs.io/en/stable/installing/)方式：  
+python3 自带 `pip3`，无需再安装。  
 
+## magic-wormhole
 
+> [magic-wormhole](https://github.com/warner/magic-wormhole): get things from one computer to another, safely.
 
-```bash
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py
-```
-
-## Gogs
-
-> vps 上首选的 git 服务托管。
-
-## [magic-wormhole](https://github.com/warner/magic-wormhole)
-
-> get things from one computer to another, safely.
-
-#### 基本用法
-
-（也可参看详细的[文档](https://magic-wormhole.readthedocs.io/en/latest/)）： 
+### magic-wormhole 基本用法
 
 发送方：
 
@@ -154,31 +191,59 @@ wormhole send README.md
 wormhole receive
 ```
 
-#### 安装
+更多资料请看详细的[文档](https://magic-wormhole.readthedocs.io/en/latest/)。  
 
-macOS
+### macOS 安装 magic-wormhole
 
 ```bash
 # macOS 上需要通过 `xcode-select --install` 来获取 gcc
 brew install magic-wormhole
 ```
 
-Linux
+### Ubuntu 安装 magic-wormhole
 
 ```bash
 # Ubuntu
-sudo apt install magic-wormhole
-# CentOS（如果 repo 中没有，则可使用 pip3 安装）
-sudo yum install magic-wormhole
+sudo apt -y install magic-wormhole
 ```
 
-说明：或者使用 `pip3` 安装（如果报错，可能需要通过 yum 安装 `python36-devel`，或参考[文档](https://magic-wormhole.readthedocs.io/en/latest/welcome.html#installation)）：
+### CentOS 安装 magic-wormhole
+
+使用 yum 安装（如果 repo 中没有，则可改用 pip3 安装，或者添加 Fedora 的 repo？）：
+
+```bash
+# CentOS
+sudo yum -y install magic-wormhole
+```
+
+（使用 `pip3` 安装如果报错，可能需要通过 yum 安装 `python3-devel`：）
+
+```bash 
+yum search python3 | grep devel
+# 看到了 python3-devel.x86_64, 安装它
+yum -y install python3-devel
+```
+
+使用 `pip3` 安装：  
 
 ```bash 
 # 为所有用户安装
 sudo pip3 install magic-wormhole
 # 也可以只给当前用户安装
 pip3 install --user magic-wormhole
+```
+
+如果使用 wormhole 时编码（ASCII）报错：
+
+```
+RuntimeError: Click will abort further execution because Python 3 was configured to use ASCII as encoding for the environment. Consult https://click.palletsprojects.com/python3/ for mitigation steps.
+```
+
+解决方法，设置编码方式（参考 [stackoverflow](https://stackoverflow.com/questions/36651680/click-will-abort-further-execution-because-python-3-was-configured-to-use-ascii)）：
+
+```
+export LC_ALL=en_US.utf-8
+export LANG=en_US.utf-8
 ```
 
 ## 设置时区
@@ -201,19 +266,19 @@ timedatectl status
 ```bash
 # 结果会比较多
 timedatectl list-timezones
-# 筛选亚洲的结果
-timedatectl list-timezones | grep Asia
+# 筛选结果
+timedatectl list-timezones | grep Asia/Shanghai
 ```
 
 将硬件时钟调整为与本地时钟一致, 0 为设置为 UTC 时间：  
 
 
 ```bash
+# 不要用于 vps，仅用于设置本地服务器
 timedatectl set-local-rtc 1
 ```
 
 将系统时区设置为上海：  
-
 
 ```bash
 timedatectl set-timezone Asia/Shanghai
@@ -251,6 +316,10 @@ usermod -aG wheel username
 ```
 
 这样该用户就有 sudo 权限了。
+
+## Gogs
+
+> vps 上首选的 git 服务托管。
 
 ## FAQ
 
