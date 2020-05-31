@@ -143,7 +143,7 @@ upgrade_oh_my_zsh
 uninstall_oh_my_zsh
 ```
 
-## 安装 Python3 和 pip3
+## CentOS 安装 Python3 和 pip3
 
 ```
 sudo yum -y update
