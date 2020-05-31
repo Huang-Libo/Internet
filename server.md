@@ -4,8 +4,8 @@
 
 ## 使用的操作系统
 
-**CentOS 7 (without SELinux)**  
-**Ubuntu 20.04**
+- CentOS 7 (without SELinux)
+- Ubuntu 20.04
 
 ## 配置本机终端
 
@@ -52,7 +52,7 @@ ssh $jp
 
 ### 方法二，在 `iTerm2` 上配置 Profiles：
 
-原理就是将用户名和密码写入到脚本中。按快捷键即可登录，不需要再输入登录命令。
+原理就是将用户名和密码（如果配置了 ssh key，则无需密码）写入到脚本中。按快捷键即可登录，不需要再输入登录命令。
 
 ## server 的认证方式
 
@@ -108,7 +108,7 @@ apt -y install zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-其强大之处是可配置各种好用的插件，默认开启的有 `git` 插件。其他插件的配置可参看其 [Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) 或 [插件代码仓库](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)（每个插件都包含详细的 Readme） 。  
+其强大之处是可配置各种好用的插件，默认开启的有 `git` 插件。其他插件的配置可参看其 [Wiki](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) 或 [插件代码仓库](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)（每个插件都包含详细的文档） 。  
 
 另外，还可以在 `~/.zshrc` 中自行配置 theme，Wiki 里有[截图示例](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)。vps 推荐使用 `ys` 主题。修改 `ZSH_THEME` 的值：  
 
@@ -120,7 +120,7 @@ ZSH_THEME="ys"
 
 ![ys theme](media/15908363956719.jpg)
 
-此主题显示了用户名，主机名，和当前目录，非常实用。  
+此主题显示了用户名、主机名、当前目录，非常实用。  
 
 oh-my-zsh 默认情况下每隔几周会检测一次升级。也可在 `~/.zshrc` 中配置：
 
@@ -240,7 +240,7 @@ export LANG=en_US.utf-8
 
 ## Gogs
 
-> vps 上首选的 git 服务托管。
+> 低配置 vps 首选的 git 服务托管。
 
 ## 设置时区
 
