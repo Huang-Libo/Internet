@@ -315,6 +315,41 @@ usermod -aG wheel username
 
 ## FAQ
 
+### CentOS 添加 EPEL
+
+[EPEL（Extra Packages for Enterprise Linux）](https://fedoraproject.org/wiki/EPEL)，是 Fedora 项目组推出的软件包。包含许多优质软件。  
+
+安装 EPEL：  
+
+```
+yum install -y epel-release
+```
+
+### CentOS 报错：Failed to set locale, defaulting to C
+
+输入 `locale`，打印：
+
+```
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+LANG=en_US.UTF-8
+LC_CTYPE=UTF-8
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+...
+```
+
+解决方式：
+
+```bash
+echo "export LC_ALL=en_US.UTF-8"  >>  /etc/profile
+echo "export LC_CTYPE=en_US.UTF-8"  >>  /etc/profile
+```
+
+再重新登录即可。
+
+### mail
+
 玩一会就提示 `You have new mail.`，输入 `mail` 查看，提示 `command not found: mail`，需要安装 `mailx`：
 
 ```bash
