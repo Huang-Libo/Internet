@@ -1,9 +1,5 @@
 # 记录连接世界的历程
 
-http://tool.chinaz.com/port
-
-https://www.vultr.com/?ref=6960892
-
 ## vps
 
 翻墙首先得租一个 vps，推荐 [Vultr](https://www.vultr.com/?ref=6960892)，按小时计费，可随时部署和删除。最低价格为 \$3.5/月（\$2.5 的只有 ipv6 网络）。可多人共用一台，非常划算。支付方式包括*信用卡、微信、支付宝*。  
