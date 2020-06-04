@@ -143,6 +143,14 @@ upgrade_oh_my_zsh
 uninstall_oh_my_zsh
 ```
 
+## Ubuntu 使用 ifconfig
+
+需要先安装 net-tools：  
+
+```
+sudo apt install net-tools
+```
+
 ## CentOS 安装 Python3 和 pip3
 
 ```
