@@ -51,13 +51,26 @@ sudo vim /etc/shadowsocks-libev/config.json
 
 ## 管理 shadowsocks-libev
 
+添加到服务：  
+
 ```bash
-# 将 shadowsocks-libev 添加到服务
 systemctl enable shadowsocks-libev
-# 启动 shadowsocks-libev 服务
+```
+
+启动服务：  
+
+```
 systemctl start shadowsocks-libev
-# 查看 shadowsocks-libev 的状态
+```
+
+查看服务状态：  
+
+```
 systemctl status shadowsocks-libev
-# 重启 shadowsocks-libev 服务
+```
+
+重启服务：  
+
+```
 systemctl restart shadowsocks-libev
 ```
