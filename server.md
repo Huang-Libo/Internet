@@ -151,7 +151,17 @@ uninstall_oh_my_zsh
 sudo apt install net-tools
 ```
 
-## CentOS 安装 Python3 和 pip3
+## 安装 Python3 和 pip3
+
+### Ubuntu
+
+Python3 一般都已有，pip3 需要自行安装：
+
+```
+sudo apt install -y python3-pip
+```
+
+### CentOS 
 
 ```
 sudo yum -y update
