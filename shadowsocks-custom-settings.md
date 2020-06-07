@@ -34,12 +34,12 @@ https://www.ip38.com/
 
 > 插件说明：https://shadowsocks.org/en/spec/Plugin.html
 
-#### kcptun
+### kcptun
 
 [kcptun](https://github.com/xtaci/kcptun)：A Stable & Secure Tunnel Based On KCP with N:M Multiplexing
 
 [kcptun-android](https://github.com/shadowsocks/kcptun-android)
 
-#### simple-obfs
+### simple-obfs
 
 [simple-obfs-android](https://github.com/shadowsocks/simple-obfs-android)：simple-obfs plugin for shadowsocks-android.
