@@ -4,11 +4,11 @@
 
 ### Windows
 
-[shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases)
+**shadowsocks-windows**：https://github.com/shadowsocks/shadowsocks-windows/releases
 
 ### Android
 
-[shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)
+**shadowsocks-android**：https://github.com/shadowsocks/shadowsocks-android/releases
 
 ### macOS
 
@@ -27,16 +27,20 @@ shadowrocket（美区，\$2.99），Surge 3（美区，可免费下载，但有�
 
 ### Linux
 
-1. GUI Client：[shadowsocks-qt5](https://github.com/shadowsocks/shadowsocks-qt5) （ Cross-platform client for Windows/MacOS/Linux.）
-2. Command-line Client：
+
+1.Command-line Client：
 
 ```bash
 sudo apt install shadowsocks-libev
 ```
 
+2.GUI Client：[shadowsocks-qt5](https://github.com/shadowsocks/shadowsocks-qt5) （ Cross-platform client for Windows/MacOS/Linux.）
+
 ### openwrt 系统的路由器
 
-[openwrt-shadowsocks](https://github.com/shadowsocks/openwrt-shadowsocks)： shadowsocks-libev 在 OpenWrt 上的移植。 
+**openwrt-shadowsocks**：https://github.com/shadowsocks/openwrt-shadowsocks  
+
+（是 shadowsocks-libev 在 OpenWrt 上的移植）
 
 ### 一个非官方的实现：outline
 

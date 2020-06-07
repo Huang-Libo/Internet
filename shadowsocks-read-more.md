@@ -1,4 +1,4 @@
-# shadowsocks 的更多资讯
+# 关于 shadowsocks 的更多资讯
 
 ## shadowsocks HOME
 
