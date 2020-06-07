@@ -74,3 +74,7 @@ systemctl status shadowsocks-libev
 ```
 systemctl restart shadowsocks-libev
 ```
+
+## 【可选项】服务端管理后台
+
+[Shadowsocks-Manager](https://github.com/shadowsocks/shadowsocks-manager) 是一个基于Node.js开发的 shadowsocks 多用户管理平台，支持 libev 和 python 版
