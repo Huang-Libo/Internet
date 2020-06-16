@@ -89,6 +89,8 @@ chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
 ```
 
+注：如果权限是 `755` 可能会有问题，请分别改成 `700` 和 `600`。参考[这里](https://unix.stackexchange.com/questions/36540/why-am-i-still-getting-a-password-prompt-with-ssh-with-public-key-authentication)。
+
 ## 在 server 上配置 [oh-my-zsh](https://ohmyz.sh/)
 
 > Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.
