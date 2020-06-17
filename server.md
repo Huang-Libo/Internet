@@ -145,6 +145,45 @@ upgrade_oh_my_zsh
 uninstall_oh_my_zsh
 ```
 
+### oh_my_zsh 的其他主题：powerlevel10k
+
+[powerlevel10k](https://github.com/romkatv/powerlevel10k) 的用户很多。除了样式多，还能**使终端的速度有明显的提升**。  
+
+有这些样式：
+
+![](media/15923807466758.jpg)
+
+
+在 macOS 上的安装方法：
+
+```
+brew install romkatv/powerlevel10k/powerlevel10k
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+```
+
+需要提及的是，`powerlevel10k` 复杂样式（如 rainbow style）对不同尺寸的窗口适配的不好，当路径很长且 git 分支名很长时，**缩放终端后，会出现图标错位的问题**：
+
+![-w915](media/15923848318449.jpg)
+
+![-w1859](media/15923848863048.jpg)
+
+另外，如果路径中如果有空格，有时也会出现显示不全的问题，应该是显示不下然后忽略了：
+
+![-w814](media/15923849233475.jpg)
+
+最后选用了 `pure` 模式，可以避免上述的显示问题：
+
+![-w807](media/15923878016603.jpg)
+
+
+如果想重新配置主题，可运行：
+
+```
+p10k configure
+```
+
+卸载方法： https://github.com/romkatv/powerlevel10k#how-do-i-uninstall-powerlevel10k
+
 ## Ubuntu 使用 ifconfig
 
 需要先安装 net-tools：  
