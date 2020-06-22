@@ -93,6 +93,13 @@ chmod 600 ~/.ssh/authorized_keys
 
 ## 在 server 上配置 [oh-my-zsh](https://ohmyz.sh/)
 
+
+```bash
+# 查看当前 shell：
+echo $SHELL
+chsh -s /bin/zsh # 修改默认shell，这个是修改当前用户的终端，如果要修改 root 账户，需要切换到 root用户
+```
+
 > Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.
 
 先安装 `zsh`：
@@ -184,6 +191,16 @@ p10k configure
 
 卸载方法： https://github.com/romkatv/powerlevel10k#how-do-i-uninstall-powerlevel10k
 
+## Vim 关闭鼠标模式
+
+最近安装了 Manjaro 系统，发现其 Vim 默认开启了鼠标模式，会拦截选中和复制功能。将其关闭：
+
+```
+:set mouse=
+```
+
+参考：https://blog.csdn.net/wzzfeitian/article/details/77005595
+
 ## Ubuntu 使用 ifconfig
 
 需要先安装 net-tools：  
@@ -221,7 +238,11 @@ yum search python3
 yum -y install python36
 ```
 
-python3 自带 `pip3`，无需再安装。  
+安装 pip3：
+
+```
+sudo yum -y install python3-pip
+```
 
 ## magic-wormhole
 
@@ -267,21 +288,21 @@ sudo apt -y install magic-wormhole
 sudo yum -y install magic-wormhole
 ```
 
+使用 `pip3` 安装：  
+
+```bash 
+# 为所有用户安装
+sudo pip3 install magic-wormhole
+# 也可以只给当前用户安装（装完后，wormhold 命令好像没有添加到环境变量？）
+pip3 install --user magic-wormhole
+```
+
 （使用 `pip3` 安装如果报错，可能需要通过 yum 安装 `python3-devel`）：
 
 ```bash 
 yum search python3 | grep devel
 # 看到了 python3-devel.x86_64, 安装它
 yum -y install python3-devel
-```
-
-使用 `pip3` 安装：  
-
-```bash 
-# 为所有用户安装
-sudo pip3 install magic-wormhole
-# 也可以只给当前用户安装
-pip3 install --user magic-wormhole
 ```
 
 如果使用 wormhole 时编码（ASCII）报错：
