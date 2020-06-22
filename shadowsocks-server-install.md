@@ -49,6 +49,10 @@ sudo vim /etc/shadowsocks-libev/config.json
 }
 ```
 
+关于“为何使用 443 端口”，比较有依据原因，可以参考 [archlinux 的这篇 wiki](https://wiki.archlinux.org/index.php/Shadowsocks_(简体中文))：
+
+![-w550](media/15926615339181.jpg)
+
 ## 管理 shadowsocks-libev
 
 添加到服务：  
