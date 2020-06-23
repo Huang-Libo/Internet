@@ -110,6 +110,11 @@ curl ip.gs
 proxychains curl ip.gs
 ```
 
+或：`curl cip.cc` 、`proxychains4 curl cip.cc` ，输出的信息更多：
+
+![-w904](media/15929317584846.jpg)
+
+
 使用 proxychains：
 
 ```
@@ -117,6 +122,49 @@ proxychains curl www.google.com
 ```
 
 参考资料：http://einverne.github.io/post/2017/02/terminal-sock5-proxy.html
+
+#### 在 macOS 中使用 proxychains4：应该需关闭 SIP
+
+新系统中科院不需要了？下次再试试。
+
+#### proxychains4 和 git：不支持 SSH 协议
+
+proxychains4 是代理 http 流量的，所以：
+
+```bash
+# 通过 HTTP 协议 clone，proxychains4 支持
+proxychains4 git clone https://github.com/shadowsocks/ShadowsocksX-NG.git
+# 通过 SSH 协议 clone，proxychains4 不支持
+proxychains4 git clone git@github.com:shadowsocks/ShadowsocksX-NG.git
+```
+
+参考资料：https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
+
+#### proxychains4 和 CocoaPods：使用 -q 参数
+
+```bash
+proxychains4 pod repo update
+```
+
+报错：
+
+![-w915](media/15929275071162.jpg)
+
+t looks like proxychains's commandline output somehow mixed in the cocoapods's script.
+
+Add -q option to make proxychains run quietly fixes this problem.
+
+
+proxychains4 -q pod repo update
+
+[Stack Overflow 上的网友说](https://stackoverflow.com/questions/43152923/pod-repo-update-failed-cannot-do-hard-reset-with-paths)，是 proxychains4 的输出混入导致了 pod 执行失败，加上 -q （quiet）参数，关闭 proxychains4 的输出就可以了：
+
+```bash
+proxychains4 -q pod repo update
+```
+
+![-w910](media/15929277325923.jpg)
+
 
 ### （另一种选择）使用 privoxy 将 HTTP 请求(包括 terminal 和浏览器)转发给 socks5 代理
 
