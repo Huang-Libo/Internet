@@ -70,3 +70,6 @@ https://blog.wateroot.com/thinking/2017-07-27-news-about-ssr.html
 ![](media/15448933026997.jpg)
 
 
+## 其他资料
+
+https://shadowsockshelp.github.io/Shadowsocks/Shadowsocks-wiki.html
