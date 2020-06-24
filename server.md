@@ -471,6 +471,17 @@ echo "export LC_CTYPE=en_US.UTF-8"  >>  /etc/profile
 yum install mailx
 ```
 
+## fedora workstation
+
+### 开启 sshd
+
+fedora workstation 默认未开启 sshd 服务，若想远程登录到该机器，需要启用 sshd：
+
+```
+sudo systemctl enable sshd
+sudo systemctl start sshd
+```
+
 ## SSH 服务的隐患
 
 https://github.com/Huang-Libo/Internet/blob/master/ssh-security.md
