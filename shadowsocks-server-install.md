@@ -24,7 +24,7 @@ CentOS 可以从 [COPR (Cool Other Package Repo)](https://copr.fedorainfracloud.
 https://pypi.org/project/shadowsocks/  
 https://shadowsocks.org/en/download/servers.html  
 
-## 配置 shadowsocks-libev
+## 配置 shadowsocks-libev server 端
 
 打开配置文件：
 
@@ -42,7 +42,8 @@ sudo vim /etc/shadowsocks-libev/config.json
     "local_port":1080,
     "password":"your-password",
     "timeout":60,
-    "method":"xchacha20-ietf-poly1305"
+    "method":"xchacha20-ietf-poly1305",
+    "mode":"tcp_and_udp"
 }
 ```
 
@@ -50,29 +51,16 @@ sudo vim /etc/shadowsocks-libev/config.json
 
 ![-w550](media/15926615339181.jpg)
 
-## 管理 shadowsocks-libev
-
-添加到服务：  
+## 管理 shadowsocks-libev server 端
 
 ```bash
+# 添加到服务
 systemctl enable shadowsocks-libev
-```
-
-启动服务：  
-
-```
+# 启动服务
 systemctl start shadowsocks-libev
-```
-
-查看服务状态：  
-
-```
+# 查看服务状态
 systemctl status shadowsocks-libev
-```
-
-重启服务：  
-
-```
+# 重启服务
 systemctl restart shadowsocks-libev
 ```
 

@@ -65,7 +65,9 @@ yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto
 
 安装好依赖后就可以从编译源码了。编译并安装好 shadowsocks-libev 之后，还需要自行添加 systemd 配置文件。
 
-配置 shadowsocks client，修改 `/etc/shadowsocks/config.json`（ 参考：https://wiki.archlinux.org/index.php/Shadowsocks ，https://wiki.archlinux.org/index.php/Shadowsocks_(简体中文) ）
+#### 配置 shadowsocks client 端
+
+修改 `/etc/shadowsocks/config.json`（ 参考：https://wiki.archlinux.org/index.php/Shadowsocks ，https://wiki.archlinux.org/index.php/Shadowsocks_(简体中文) ）
 
 ```
 {
@@ -76,13 +78,16 @@ yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto
     "password":"mypassword",
     "timeout":300,
     "method":"chacha20-ietf-poly1305",
+    "mode":"tcp_and_udp",
     "fast_open": false,
     "workers": 1,
     "prefer_ipv6": false
 }
 ```
 
-#### CentOS
+#### shadowsocks-libev client 端配置 systemd
+
+**CentOS**：  
 
 参考：https://zzz.buzz/zh/gfw/2018/03/21/install-shadowsocks-client-on-centos-7/#启动-shadowsocks-服务
 
@@ -91,7 +96,7 @@ systemctl enable --now shadowsocks-libev-local
 systemctl status shadowsocks-libev-local
 ```
 
-#### Manjaro
+**Manjaro**：   
 
 下面出现的 **config** 即 `/etc/shadowsocks/config.json`。（参考：https://www.shuzhiduo.com/A/MyJx3QEVzn/）
 
