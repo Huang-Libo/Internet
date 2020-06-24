@@ -4,7 +4,7 @@ shadowsocks-libev 项目的地址：https://github.com/shadowsocks/shadowsocks-l
 
 ## (Option 1 尝鲜) 使用 Snap 安装 shadowsocks-libev
 
-[官方推荐](https://github.com/shadowsocks/shadowsocks-libev#quick-start)使用 [Snap](https://snapcraft.io/core) 来安装，适用于各类操作系统。
+[官方推荐](https://github.com/shadowsocks/shadowsocks-libev#quick-start)使用 [Snap](https://snapcraft.io/core) 来安装，适用于各类操作系统。（CentOS 7.6+ ，Ubuntu 16.04+）
 
 ## (Option 2) 从各系统的发行仓库安装
 
