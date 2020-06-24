@@ -162,7 +162,7 @@ proxychains curl www.google.com
 
 #### 在 macOS 中使用 proxychains4：应该需关闭 SIP
 
-新系统中科院不需要了？下次再试试。
+新系统中不需要了？下次再试试。
 
 #### proxychains4 和 git：不支持 SSH 协议
 
