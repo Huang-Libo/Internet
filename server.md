@@ -19,6 +19,21 @@
 
 听说微软自己搞了一个 Linux 环境子系统？
 
+## 查看系统信息
+
+查看内核版本：
+
+```
+uname -r
+```
+
+查看 CentOS 版本：
+
+```
+$ cat /etc/redhat-release
+CentOS Linux release 7.8.2003 (Core)
+```
+
 ## 简化 vps 登录命令
 
 ### 方法一，在 `~/.zshrc` （更换为你使用的 shell 的配置文件）中添加变量：
@@ -191,7 +206,9 @@ p10k configure
 
 卸载方法： https://github.com/romkatv/powerlevel10k#how-do-i-uninstall-powerlevel10k
 
-## Vim 关闭鼠标模式
+## Vim
+
+### 关闭鼠标模式
 
 最近安装了 Manjaro 系统，发现其 Vim 默认开启了鼠标模式，会拦截选中和复制功能。将其关闭：
 
@@ -200,6 +217,23 @@ p10k configure
 ```
 
 参考：https://blog.csdn.net/wzzfeitian/article/details/77005595
+
+### CentOS 7 从源码编译 vim 8
+
+```
+wget https://github.com/vim/vim/archive/v8.2.1045.tar.gz
+sudo ./configure --enable-gui=no
+sudo make
+sudo make install
+```
+
+CentOS 编译vim 报错： no terminal library found，解决方法：
+
+```
+yum install ncurses-devel -y
+```
+
+make 时报错：`auto/osdef.h:18:12: error: conflicting types for ‘printf’`， [issue](https://github.com/vim/vim/issues/5258) 里的解决方法提到了使用 `LC_ALL=sv_SE.UTF-8 make`，但没效。执行了 make clean，再 make 就可以了，可能是之前编译时没使用 sudo 导致的？
 
 ## Ubuntu 使用 ifconfig
 

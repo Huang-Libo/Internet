@@ -40,15 +40,30 @@ brew install shadowsocks-libev
 
 ### Command-line Client：shadowsocks-libev
 
+CentOS 需使用 COPR (Cool Other Package Repo) ( https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/ )  
+
+参考：https://zzz.buzz/zh/gfw/2018/03/21/install-shadowsocks-client-on-centos-7/
+
 ```bash
-# 说明：CentOS 默认需要添加 EPEL 仓库才可安装。
+# CentOS 7（其他版本需要更换资源地址）
 yum install -y epel-release
+sudo cd /etc/yum.repos.d/
+sudo curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo
 yum install -y shadowsocks-libev
 # Ubuntu
 sudo apt install shadowsocks-libev
 # Manjaro
 sudo pacman -S shadowsocks-libev
 ```
+
+如果要从源码编译（**比较繁琐，不推荐**）。先安装依赖：
+
+```
+sudo yum install -y epel-release
+yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto c-ares-devel libev-devel libsodium-devel mbedtls-devel -y
+```
+
+安装好依赖后就可以从编译源码了。编译并安装好 shadowsocks-libev 之后，还需要自行添加 systemd 配置文件。
 
 配置 shadowsocks client，修改 `/etc/shadowsocks/config.json`（ 参考：https://wiki.archlinux.org/index.php/Shadowsocks ，https://wiki.archlinux.org/index.php/Shadowsocks_(简体中文) ）
 
@@ -66,6 +81,17 @@ sudo pacman -S shadowsocks-libev
     "prefer_ipv6": false
 }
 ```
+
+#### CentOS
+
+参考：https://zzz.buzz/zh/gfw/2018/03/21/install-shadowsocks-client-on-centos-7/#启动-shadowsocks-服务
+
+```bash
+systemctl enable --now shadowsocks-libev-local
+systemctl status shadowsocks-libev-local
+```
+
+#### Manjaro
 
 下面出现的 **config** 即 `/etc/shadowsocks/config.json`。（参考：https://www.shuzhiduo.com/A/MyJx3QEVzn/）
 
@@ -89,6 +115,17 @@ sudo systemctl status shadowsocks-libev@config
 brew install proxychains
 # Manjaro
 sudo pacman -S proxychains
+```
+
+CentOS 需要从源码安装（参考：https://www.harker.cn/archives/proxychains.html）：
+
+```
+git clone https://github.com/rofl0r/proxychains-ng
+cd proxychains-ng
+sudo ./configure --prefix=/usr --sysconfdir=/etc
+sudo make 
+sudo make install
+sudo make install-config
 ```
 
 如果本地 socks5 端口是 1086，打开配置文件：  
