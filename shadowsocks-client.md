@@ -56,7 +56,7 @@ sudo apt install shadowsocks-libev
 sudo pacman -S shadowsocks-libev
 ```
 
-如果要从源码编译（**比较繁琐，不推荐**）。先安装依赖：
+如果要从源码编译（**比较繁琐，不推荐**）。先安装依赖（ 参考：https://github.com/shadowsocks/shadowsocks-libev ）：
 
 ```
 sudo yum install -y epel-release
