@@ -4,8 +4,9 @@
 
 ## 使用的操作系统
 
-- CentOS 7 (without SELinux)
-- Ubuntu 20.04
+- CentOS 7
+- Ubuntu 18.04
+- Manjaro
 
 ## 配置本机终端
 
@@ -167,7 +168,7 @@ upgrade_oh_my_zsh
 uninstall_oh_my_zsh
 ```
 
-### oh_my_zsh 的其他主题：powerlevel10k
+### oh_my_zsh 的其他主题：powerlevel10k（云服务器不推荐使用，特殊字符较多）
 
 [powerlevel10k](https://github.com/romkatv/powerlevel10k) 的用户很多。除了样式多，还能**使终端的速度有明显的提升**。  
 
@@ -421,7 +422,7 @@ vim /etc/group
 adduser username
 # 给用户设置密码
 passwd username
-# 将用户添加到 wheel 用户组（对应 Ubuntu 上的 sudo 用户组）
+# （CentOS）将用户添加到 wheel 用户组（对应 Ubuntu 上的 sudo 用户组）
 usermod -aG wheel username
 ```
 
