@@ -1,21 +1,23 @@
 # shadowsocks 客户端的安装和配置
 
-## iOS
+## iOS：Shadowrocket
 
-**shadowrocket**（美区，\$2.99）（**推荐**）
+**Shadowrocket**（美区，\$2.99）（**推荐**）
 **Surge**（美区，可免费下载，但有内购 \$49.99）
 
-## Android
+## Android：shadowsocks-android
 
-**shadowsocks-android**：https://github.com/shadowsocks/shadowsocks-android/releases
+https://github.com/shadowsocks/shadowsocks-android/releases
 
-## openwrt 系统的路由器
+## openwrt 系统的路由器：openwrt-shadowsocks
 
-**openwrt-shadowsocks**（是 shadowsocks-libev 在 OpenWrt 上的移植）：https://github.com/shadowsocks/openwrt-shadowsocks  
+> openwrt 是 shadowsocks-libev 在 OpenWrt 上的移植
+ 
+https://github.com/shadowsocks/openwrt-shadowsocks/releases  
 
-## Windows
+## Windows：shadowsocks-windows
 
-**shadowsocks-windows**：https://github.com/shadowsocks/shadowsocks-windows/releases
+https://github.com/shadowsocks/shadowsocks-windows/releases
 
 ## macOS
 
@@ -110,17 +112,17 @@ sudo systemctl start shadowsocks-libev@config
 sudo systemctl status shadowsocks-libev@config
 ```
 
-### （推荐）使用 proxychains 代理 terminal 的请求，使用 SwitchyOmega 代理浏览器的请求
+### （推荐）使用 proxychains4 代理 terminal 的请求，使用 SwitchyOmega 代理浏览器的请求
 
-> proxychains 只可在 terminal 中使用，可自行控制是否使用代理，比较方便。如果浏览器中想使用代理，可在浏览器中添加 **SwitchyOmega** 插件。
+> proxychains4 只可在 terminal 中使用，可自行控制是否使用代理，比较方便。如果浏览器中想使用代理，可在浏览器中添加 **SwitchyOmega** 插件。
 
 安装：
 
 ```bash
 # macOS
-brew install proxychains
+brew install proxychains-ng
 # Manjaro
-sudo pacman -S proxychains
+sudo pacman -S proxychains-ng
 ```
 
 CentOS 需要从源码安装（参考：https://www.harker.cn/archives/proxychains.html）：
@@ -158,10 +160,10 @@ proxychains curl ip.gs
 ![-w904](media/15929317584846.jpg)
 
 
-使用 proxychains：
+使用 proxychains4：
 
 ```
-proxychains curl www.google.com
+proxychains4 curl www.google.com
 ```
 
 参考资料：http://einverne.github.io/post/2017/02/terminal-sock5-proxy.html
@@ -192,11 +194,6 @@ proxychains4 pod repo update
 报错：
 
 ![-w915](media/15929275071162.jpg)
-
-t looks like proxychains's commandline output somehow mixed in the cocoapods's script.
-
-Add -q option to make proxychains run quietly fixes this problem.
-
 
 proxychains4 -q pod repo update
 
