@@ -45,9 +45,10 @@ CentOS 需使用 COPR (Cool Other Package Repo) ( https://copr.fedorainfracloud.
 参考：https://zzz.buzz/zh/gfw/2018/03/21/install-shadowsocks-client-on-centos-7/
 
 ```bash
-# CentOS 7（其他版本需要更换资源地址）
-yum install -y epel-release
+# CentOS
+sudo yum install -y epel-release
 sudo cd /etc/yum.repos.d/
+# !! For CentOS 7（ ！！其他版本需要更换资源地址）
 sudo curl -O https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo
 yum install -y shadowsocks-libev
 # Ubuntu
