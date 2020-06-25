@@ -1,7 +1,5 @@
 # VPS 
 
-> [VPS](https://en.wikipedia.org/wiki/Virtual_private_server)（Virtual Private Server 虚拟专用服务器），是将一台服务器分割成多个虚拟专享服务器的服务。
-
 ## 使用的操作系统
 
 - CentOS 7
