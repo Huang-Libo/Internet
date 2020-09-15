@@ -420,8 +420,17 @@ vim /etc/group
 adduser username
 # 给用户设置密码
 passwd username
-# （CentOS）将用户添加到 wheel 用户组（对应 Ubuntu 上的 sudo 用户组）
+```
+
+给用户添加 sudo 权限：
+
+```bash
+# CentOS：将用户添加到 wheel 用户组
 usermod -aG wheel username
+# Ubuntu：将用户添加到 sudo 组 
+usermod -aG sudo username
+# docker：将用户加入到 docker 组，则非 root 用户可管理 docker
+sudo usermod -aG docker username
 ```
 
 这样该用户就有 sudo 权限了。
