@@ -105,8 +105,43 @@ chmod 600 ~/.ssh/authorized_keys
 
 注：如果权限是 `755` 可能会有问题，请分别改成 `700` 和 `600`。参考[这里](https://unix.stackexchange.com/questions/36540/why-am-i-still-getting-a-password-prompt-with-ssh-with-public-key-authentication)。
 
-## 在 server 上配置 [oh-my-zsh](https://ohmyz.sh/)
+## 添加有 sudo 权限的用户
 
+可以先查看当前的`用户`信息和`用户组`信息：  
+
+```bash
+# 查看用户信息
+vim /etc/passwd
+#查看用户组信息
+vim /etc/group
+```
+
+添加用户：  
+
+```bash
+# 添加用户
+adduser username
+# 给用户设置密码
+passwd username
+```
+
+给用户添加 sudo 权限：
+
+```bash
+# CentOS：将用户添加到 wheel 用户组
+usermod -aG wheel username
+# Ubuntu：将用户添加到 sudo 组 
+usermod -aG sudo username
+```
+
+给用户添加 docker 权限：
+
+```bash
+# docker：将用户加入到 docker 组，则非 root 用户可管理 docker
+usermod -aG docker username
+```
+
+## 在 server 上配置 [oh-my-zsh](https://ohmyz.sh/)
 
 ```bash
 # 查看当前 shell：
@@ -401,39 +436,6 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 ```
 
 参考资料：https://www.cnblogs.com/zhangeamon/p/5500744.html
-
-## 添加有 sudo 权限的用户
-
-可以先查看当前的`用户`信息和`用户组`信息：  
-
-```bash
-# 查看用户信息
-vim /etc/passwd
-#查看用户组信息
-vim /etc/group
-```
-
-添加用户：  
-
-```bash
-# 添加用户
-adduser username
-# 给用户设置密码
-passwd username
-```
-
-给用户添加 sudo 权限：
-
-```bash
-# CentOS：将用户添加到 wheel 用户组
-usermod -aG wheel username
-# Ubuntu：将用户添加到 sudo 组 
-usermod -aG sudo username
-# docker：将用户加入到 docker 组，则非 root 用户可管理 docker
-sudo usermod -aG docker username
-```
-
-这样该用户就有 sudo 权限了。
 
 ## FAQ
 
