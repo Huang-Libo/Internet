@@ -240,6 +240,52 @@ p10k configure
 
 卸载方法： https://github.com/romkatv/powerlevel10k#how-do-i-uninstall-powerlevel10k
 
+## 安装 docker
+
+> 注意，如果服务器上装过 docker，需要先卸载旧版（详情请看[官方文档](https://docs.docker.com/engine/install/ubuntu)）。
+
+以 Ubuntu 为例，有三种安装方式：
+
+- **使用软件源安装（推荐）**
+- 使用 `deb` 安装包，适用于无网络连接的机器
+- 使用一键脚本安装（不推荐，不要在生产环境使用。只用于测试环境）
+
+下面列出从软件源来安装的步骤。  
+
+#### 1. 允许 apt 通过 HTTPS 使用软件源:
+
+```
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+```
+
+#### 2. 添加 docker 官方的 GPG key:
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+#### 3. 添加 docker 软件源
+
+```
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+
+#### 4. 安装 docker engine
+
+```
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
 ## Vim
 
 ### 关闭鼠标模式
