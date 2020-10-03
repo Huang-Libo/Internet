@@ -80,6 +80,16 @@ passwd
 
 ### 免密，在 server 的 authorized_keys 文件中配置 ssh key
 
+#### 方法一：自动上传 ssh key
+
+使用 `ssh-copy-id` 命令：
+
+```
+ssh-copy-id username@IP
+```
+
+#### 方法二：手动上传 ssh key
+
 先获取当前机器的公钥：
 
 ```bash
