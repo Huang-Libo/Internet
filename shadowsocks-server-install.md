@@ -42,8 +42,7 @@ sudo vim /etc/shadowsocks-libev/config.json
     "local_port":1080,
     "password":"your-password",
     "timeout":60,
-    "method":"xchacha20-ietf-poly1305",
-    "mode":"tcp_and_udp"
+    "method":"xchacha20-ietf-poly1305"
 }
 ```
 
